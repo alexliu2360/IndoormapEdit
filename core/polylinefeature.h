@@ -27,16 +27,16 @@ public:
     void setCenter(const QPointF & center);
     const QString & brief() const;
     void setBrief(const QString & brief);
-    const QString & type();
-    void setType(const QString & type);
+//    const QString & type();
+//    void setType(const QString & type);
 
-    virtual const QStringList typeStringList() const{return QStringList();}
-    virtual QString getTypeName(){return QString();}
-    virtual void updateByTypeName(const QString &typeName){}
+//    virtual const QStringList typeStringList() const{return QStringList();}
+//    virtual QString getTypeName(){return QString();}
+//    virtual void updateByTypeName(const QString &typeName){}
 
     void setParentFeature(PolylineFeature* feature);
 
-    QRectF boundingRect() const;
+//    QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
     //io
@@ -51,14 +51,14 @@ signals:
     void idChanged(int oldId, int newId);
     void centerChanged(const QPointF & center);
     void briefChanged(const QString & brief);
-    void typeChanged(const QString & type);
+//    void typeChanged(const QString & type);
 protected:
 
     QString m_enName;
     int     m_id;
-    QPointF m_center;
+//    QPointF m_center;
     QString m_brief;
-    QString m_type;
+//    QString m_type;
 };
 
 

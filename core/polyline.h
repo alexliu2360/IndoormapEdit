@@ -13,8 +13,7 @@ class PolyLine : public PolylineFeature
     Q_OBJECT
 public:
     PolyLine(QGraphicsItem *parent = 0);
-    PolyLine(PolygonFeature &polygon);
-    PolyLine( const QString & name, const QPolygon& poly);
+    PolyLine(const QString & name, QGraphicsItem *parent);
     
     //QGraphicsItem functions
     QPainterPath shape() const;

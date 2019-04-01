@@ -3,13 +3,13 @@
 #include <QDateTime>
 
 PolylineFeature::PolylineFeature(QGraphicsItem *parent) :
-    QGraphicsObject(parent), m_type("0")
+    QGraphicsObject(parent)
 {
     generateId();
 }
 
 PolylineFeature::PolylineFeature(const QString &name, QGraphicsItem *parent) :
-    QGraphicsObject(parent), m_type("0")
+    QGraphicsObject(parent)
 {
     generateId();
     setObjectName(name);
@@ -65,29 +65,29 @@ void PolylineFeature::setEnName(const QString & name){
     emit enNameChanged(m_enName);
 }
 
-const QPointF & PolylineFeature::center() const
-{
-    return m_center;
-}
+//const QPointF & PolylineFeature::center() const
+//{
+//    return m_center;
+//}
 
-void PolylineFeature::setCenter(const QPointF & center)
-{
-    if(m_center == center)
-        return;
-    m_center = center;
-    emit centerChanged(m_center);
-}
+//void PolylineFeature::setCenter(const QPointF & center)
+//{
+//    if(m_center == center)
+//        return;
+//    m_center = center;
+//    emit centerChanged(m_center);
+//}
 
-const QString & PolylineFeature::type() {
-    return m_type;
-}
+//const QString & PolylineFeature::type() {
+//    return m_type;
+//}
 
-void PolylineFeature::setType(const QString & type){
-    if(m_type == type)
-        return;
-    m_type = type;
-    emit typeChanged(m_type);
-}
+//void PolylineFeature::setType(const QString & type){
+//    if(m_type == type)
+//        return;
+//    m_type = type;
+//    emit typeChanged(m_type);
+//}
 
 void PolylineFeature::setParentFeature(PolylineFeature *feature) {
     setParent(feature);
@@ -99,10 +99,10 @@ bool PolylineFeature::load(const QJsonObject &jsonObject)
     setObjectName( jsonObject["Name"].toString() );
     m_enName = jsonObject["Name_en"].toString();
     m_brief = jsonObject["Brief"].toString();
-    const QJsonArray & jsonArray = jsonObject["Center"].toArray();
-    if(jsonArray.size() == 2){
-        m_center = QPointF(jsonArray[0].toDouble(), -jsonArray[1].toDouble());
-    }
+//    const QJsonArray & jsonArray = jsonObject["Center"].toArray();
+//    if(jsonArray.size() == 2){
+//        m_center = QPointF(jsonArray[0].toDouble(), -jsonArray[1].toDouble());
+//    }
     return true;
 }
 
@@ -114,10 +114,10 @@ bool PolylineFeature::save(QJsonObject &jsonObject) const
     return true;
 }
 
-QRectF PolylineFeature::boundingRect() const
-{
-    return QRectF(m_center, m_center);
-}
+//QRectF PolylineFeature::boundingRect() const
+//{
+//    return QRectF(m_center, m_center);
+//}
 
 void PolylineFeature::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
@@ -125,6 +125,6 @@ void PolylineFeature::paint(QPainter *painter, const QStyleOptionGraphicsItem *o
 }
 
 void PolylineFeature::transformFeature(const QMatrix &matrix){
-    m_center = matrix.map(m_center);
-    emit centerChanged(m_center);
+//    m_center = matrix.map(m_center);
+//    emit centerChanged(m_center);
 }

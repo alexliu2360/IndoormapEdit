@@ -1,5 +1,4 @@
 #include "polyline.h"
-#include "polylinefeature.h"
 #include "../gui/documentview.h"
 #include <QPainter>
 #include <QApplication>
@@ -7,10 +6,14 @@
 #include <QStyleOptionGraphicsItem>
 #pragma execution_character_set("utf-8")
 
-PolyLine::PolyLine(PolygonFeature &polygon):PolylineFeature(parent){
+PolyLine::PolyLine(QGraphicsItem *parent)
+    :PolylineFeature(parent)
+{
 
 }
-PolyLine::PolyLine( const QString & name, const QPolygon& poly):PolylineFeature(parent){
+PolyLine::PolyLine(const QString & name, QGraphicsItem *parent)
+    :PolylineFeature(parent)
+{
 
 }
 
